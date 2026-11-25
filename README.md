@@ -1,3 +1,7 @@
+Web: https://iamstudying.itch.io/mygame-godot-hexrun
+
+---
+
 Hexagon Escape
 
 A fast-paced arcade survival game built with Godot 4 and GDScript.

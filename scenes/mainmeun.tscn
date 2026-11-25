@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl0kf0eemmp3p"]
+
+[ext_resource type="Script" uid="uid://nurmiwvgdc5y" path="res://scenes/mainmeun.gd" id="1_simbc"]
+[ext_resource type="Texture2D" uid="uid://csqako6sc08es" path="res://images/Willowisp.png" id="2_mlgtf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjk1m"]
+content_margin_left = 24.0
+
+[node name="mainmeun" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_simbc")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TextEdit" type="TextEdit" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_constants/outline_size = 20
+theme_override_constants/line_spacing = 25
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sjk1m")
+text = "HEX RUN"
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_mlgtf")
+stretch_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Max Score : "
+
+[node name="maxScore" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="playButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "play"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/playButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

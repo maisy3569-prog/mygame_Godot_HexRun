@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccs7immnwyghk"]
+
+[ext_resource type="Texture2D" uid="uid://csqako6sc08es" path="res://images/Willowisp.png" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://xkeum00fadct" path="res://scenes/player.gd" id="1_rwgxs"]
+
+[node name="world" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(563, 311)
+script = ExtResource("1_rwgxs")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_nnsk1")

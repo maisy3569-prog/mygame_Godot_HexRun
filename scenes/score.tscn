@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddhqa76nmbaa3"]
+
+[ext_resource type="Script" uid="uid://dov6f326l75ch" path="res://scenes/score.gd" id="1_8juob"]
+
+[node name="score" type="Control"]
+layout_mode = 3
+anchor_left = -0.011
+offset_left = 12.672
+offset_right = 1.0
+script = ExtResource("1_8juob")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.65
+anchor_right = -4.65
+offset_left = -513.35
+offset_top = -319.0
+offset_right = -486.35
+offset_bottom = -250.0
+theme_override_font_sizes/font_size = 50
+text = "0"

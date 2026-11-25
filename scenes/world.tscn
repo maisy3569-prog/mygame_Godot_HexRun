@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccs7immnwyghk"]
+
+[ext_resource type="Texture2D" uid="uid://csqako6sc08es" path="res://images/Willowisp.png" id="1_nnsk1"]
+[ext_resource type="Script" uid="uid://xkeum00fadct" path="res://scenes/player.gd" id="2_4wyf3"]
+[ext_resource type="Script" uid="uid://cxp521gxswftl" path="res://scenes/hex_spawner.gd" id="4_k0juu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0juu"]
+radius = 39.3266
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71j4m"]
+radius = 39.286
+
+[node name="world" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+scale = Vector2(0.559995, 0.559995)
+script = ExtResource("2_4wyf3")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_nnsk1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(8.92862, -7.14292)
+shape = SubResource("CircleShape2D_k0juu")
+
+[node name="hitbox" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/hitbox"]
+position = Vector2(8.92865, -7.14292)
+shape = SubResource("CircleShape2D_71j4m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HexSpawner" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+autostart = true
+script = ExtResource("4_k0juu")
+
+[connection signal="body_entered" from="Player/hitbox" to="Player" method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="HexSpawner" to="HexSpawner" method="_on_timeout"]
